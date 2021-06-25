@@ -30,7 +30,7 @@
 .generated-pairs {
     width: 100%;
     background-color: #f4ecf0;
-    padding: 10px 40px;
+    padding: 10px 5px;
     color: black;
     text-align: center;
 
@@ -57,7 +57,7 @@
 
 
 #container {
-    padding: 10px 40px;
+    padding: 10px 10px;
     color: black;
     text-align: center;
     height: auto;
