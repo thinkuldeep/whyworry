@@ -1,0 +1,90 @@
+/* Include the padding and border in an element's total width and height */
+* {
+    box-sizing: border-box;
+    font-family: avenir next,avenir,sans-serif;
+}
+
+
+/* Style the header */
+.header {
+    background-color: #f4bb84;
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+}
+
+.footer {
+    background-color: #f4bb84;
+    padding: 10px 40px;
+    color: white;
+    text-align: center;
+}
+
+/* Clear floats after the header */
+.footer:after, .generated-pairs:after, .header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.generated-pairs {
+    width: 100%;
+    background-color: #f4ecf0;
+    padding: 10px 40px;
+    color: black;
+    text-align: center;
+
+}
+
+
+/* Style the "Add" button */
+.addBtn {
+    padding: 10px;
+    width: 25%;
+    background: #d9d9d9;
+    color: #555;
+    float: inside;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 0;
+}
+
+.addBtn:hover {
+    background-color: #bbb;
+}
+
+
+#container {
+    padding: 10px 40px;
+    color: black;
+    text-align: center;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    display: inline-block;
+}
+
+#confirm {
+    display: none;
+    background-color: #f4ba56;
+    border: 1px solid #aaa;
+    min-width: 300px;
+    padding: 6px 8px 8px;
+    box-sizing: border-box;
+    text-align: center;
+}
+#confirm button {
+    background-color: #48E5DA;
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 5px;
+    text-align: center;
+    width: 80px;
+    cursor: pointer;
+}
+#confirm .message {
+    text-align: center;
+}

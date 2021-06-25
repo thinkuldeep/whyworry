@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Why Worry?</title>
+   <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="myDIV" class="header">
+  <h2>Life is simple, we make it complex</h2>
+    <h3>Anxiety and worrying about problems will not solve anything, but clicking below may solve your problems</h3>
+    <span onclick="solve()" class="addBtn">Try me!</span>
+</div>
+
+
+
+<div id="generated-pairs" class="generated-pairs">
+    <div id="container">
+        <div id="confirm">
+            <div class="message">Do you have a problem in Life?</div>
+            <button class="yes">Yes</button>
+            <button class="no">No</button>
+        </div>
+        <div id="content">
+
+        </div>
+    </div>
+</div>
+
+
+
+<script >
+  var contentBox = $("#content");
+  function functionConfirm(msg, myYes, myNo) {
+    var confirmBox = $("#confirm");
+    confirmBox.find(".message").text(msg);
+    confirmBox.find(".yes,.no").unbind().click(function() {
+      confirmBox.hide();
+    });
+    confirmBox.find(".yes").click(myYes);
+    confirmBox.find(".no").click(myNo);
+    confirmBox.show();
+  }
+
+function solve() {
+  contentBox.html("");
+  functionConfirm("Do you have a problem in Life?", function yes() {
+        contentBox.append("Do you have a problem in Life? - <b> Yes </b><br>");
+        functionConfirm("Can you do something about it?", function yes() {
+          contentBox.append("Can you do something about it? - <b> Yes </b><br>");
+          whyworry()
+        },
+        function no() {
+          contentBox.append("Can you do something about it? - <b> No </b><br>");
+          whyworry()
+        });
+    },
+    function no() {
+      contentBox.append("Do you have a problem in Life? - <b> No </b><br>");
+      whyworry()
+    });
+}
+
+function whyworry() {
+  contentBox.append("then <b>why worry?</b>");
+}
+</script>
+
+<div class="footer">
+    <a href="https://thinkuldeep.com">Home</a>
+</div>
+</body>
+</html>

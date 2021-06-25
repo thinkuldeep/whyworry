@@ -1,2 +1,2 @@
-# whyworry
-Why Worry?
+# pair-generator
+Feedback Pair Generator
