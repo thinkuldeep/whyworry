@@ -13,11 +13,15 @@
     text-align: center;
 }
 
+h3{
+    color: #555555;
+}
+
 .footer {
     background-color: #f4bb84;
-    padding: 10px 40px;
+    padding: 10px 5px;
     color: white;
-    text-align: center;
+    text-align: left;
 }
 
 /* Clear floats after the header */
@@ -41,14 +45,14 @@
 .addBtn {
     padding: 10px;
     width: 25%;
-    background: #d9d9d9;
+    background: #39f4e7;
     color: #555;
     float: inside;
     text-align: center;
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
-    border-radius: 0;
+    border-radius: 5px;
 }
 
 .addBtn:hover {
@@ -63,6 +67,7 @@
     margin: 0 auto;
     position: relative;
     display: inline-block;
+    padding-bottom: 20px;
 }
 
 #confirm {
@@ -73,9 +78,10 @@
     padding: 6px 8px 8px;
     box-sizing: border-box;
     text-align: center;
+    font-size: 1.2em;
 }
 #confirm button {
-    background-color: #48E5DA;
+    background-color: #39f4e7;
     display: inline-block;
     border-radius: 5px;
     border: 1px solid #aaa;
@@ -84,6 +90,26 @@
     width: 80px;
     cursor: pointer;
 }
+
 #confirm .message {
     text-align: center;
+}
+
+#lang-select {
+    border-radius: 5px;
+    border: 1px solid #aaa;
+}
+
+#content {
+    font-size: 1.2em;
+    padding: 20px 1px;
+}
+
+.footer a{
+    text-decoration: #554918;
+}
+
+a[href*="https://freehitcounters.org/"] {
+    color: #f4bb84;
+    font-size: 0.1px;
 }

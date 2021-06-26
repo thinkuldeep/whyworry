@@ -6,12 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      const content = {
+        "header1" : {
+          "en" : "Life is simple, we make it complex",
+          "hi" : "जिंदगी तो आसान, इसे मुश्किल तो हम बनाते है"
+        },
+        "header2" : {
+          "en" : "Anxiety and worrying about problems will not solve anything, but clicking below may reduce your anxiety.",
+          "hi" : "डर और चिंता करने से कोई मुश्किल हल नहीं होती, पर निचे क्लिक करने पर चिंता कुछ कम हो सकती है।"
+        },
+        "clickhere" : {
+          "en" : "Click here!",
+          "hi" : "यहाँ क्लिक करें!"
+        },
+        "tryagain" : {
+          "en" : "Try again!",
+          "hi" : "पुनः प्रयास करेंं!"
+        },
+        "q1" : {
+          "en" : "Do you have a problem in Life?",
+          "hi" : "क्या आपकी जिंदगी में कोई मुश्किल है?"
+        },
+        "q2" : {
+          "en" : "Can you do something about it?",
+          "hi" : "क्या आप इसके बारे में कुछ कर सकते है?"
+        },
+        "whyworry" : {
+          "en" : "then <b>why worry?</b>",
+          "hi" : "तो <b>चिंता क्यों करना?</b>"
+        },
+        "yes" : {
+          "en" : "Yes",
+          "hi" : "हाँ"
+        },
+        "no" : {
+          "en" : "No",
+          "hi" : "नहीं"
+        }
+      }
+    </script>
 </head>
 <body>
+
 <div id="myDIV" class="header">
-  <h2>Life is simple, we make it complex</h2>
-    <h3>Anxiety and worrying about problems will not solve anything, but clicking below may solve your problems</h3>
-    <span onclick="solve()" class="addBtn">Try me!</span>
+    <select id="lang-select">
+        <option value="en" selected>English</option>
+        <option value="hi">Hindi</option>
+    </select>
+  <h2 id="header1">Life is simple, we make it complex</h2>
+    <h3 id="header2">Anxiety and worrying about problems will not solve anything, but clicking below may reduce your anxiety.</h3>
+    <span id="clickhere" onclick="solve()" class="addBtn">Click here!</span>
 </div>
 
 
@@ -21,18 +66,36 @@
         <div id="content">
 
         </div>
+        <div>
+            <span id="tryagain" onclick="solve()" class="addBtn">Try again!</span>
+        </div>
         <div id="confirm">
-            <div class="message">Do you have a problem in Life?</div>
-            <button class="yes">Yes</button>
-            <button class="no">No</button>
+            <div class="message"></div>
+            <button id="yes" class="yes">Yes</button>
+            <button id="no" class="no">No</button>
         </div>
 
     </div>
 </div>
 
+<script>
 
+  let searchParams = new URLSearchParams(window.location.search);
+  let lang = searchParams.get("lang");
+  lang = lang? lang : "en";
 
-<script >
+  var elements = ["header1", "header2", "clickhere", "yes", "no", "tryagain"];
+  elements.forEach(element => $("#"+element).html(content[element][lang]));
+
+  var langSelection = $("#lang-select");
+  langSelection.val(lang);
+
+  langSelection.change(function () {
+    window.location.search = "lang="+$(this).val();
+  });
+
+  $("#tryagain").hide();
+
   var contentBox = $("#content");
   function functionConfirm(msg, myYes, myNo) {
     var confirmBox = $("#confirm");
@@ -46,31 +109,36 @@
   }
 
 function solve() {
+  $("#tryagain").hide();
   contentBox.html("");
-  functionConfirm("Do you have a problem in Life?", function yes() {
-        contentBox.append("Do you have a problem in Life? - <b> Yes </b><br>");
-        functionConfirm("Can you do something about it?", function yes() {
-          contentBox.append("Can you do something about it? - <b> Yes </b><br>");
+  functionConfirm(content.q1[lang], function yes() {
+        contentBox.append(content.q1[lang]+" - <b> "+content.yes[lang]+" </b><br><br>");
+        functionConfirm(content.q2[lang], function yes() {
+          contentBox.append(content.q2[lang]+" - <b> "+content.yes[lang]+" </b><br><br>");
           whyworry()
         },
         function no() {
-          contentBox.append("Can you do something about it? - <b> No </b><br>");
+          contentBox.append(content.q2[lang]+ " - <b> "+content.no[lang]+" </b><br><br>");
           whyworry()
         });
     },
     function no() {
-      contentBox.append("Do you have a problem in Life? - <b> No </b><br>");
+      contentBox.append(content.q1[lang]+" - <b> "+content.no[lang]+" </b><br><br>");
       whyworry()
     });
 }
 
 function whyworry() {
-  contentBox.append("then <b>why worry?</b>");
+  contentBox.append(content.whyworry[lang]);
+  $("#tryagain").show();
 }
 </script>
 
 <div class="footer">
-    <a href="https://thinkuldeep.com">Home</a>
+    <a href="https://thinkuldeep.com">thinkuldeep.com</a>
+    <a href="https://freehitcounters.org/">https://freehitcounters.org</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=c994610e7d5e83d5d55b0fae4bd1a41e001a3012'></script>
+    <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/701448/t/5"></script>
+    <br/>
 </div>
 </body>
 </html>
